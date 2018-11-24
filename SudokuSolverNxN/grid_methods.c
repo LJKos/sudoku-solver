@@ -29,9 +29,6 @@ int getNumberID(Grid *grid, int id) {
 
 
 int getID(Grid *grid, int cell_id, int number_id) {
-    
-    //might have better way to do
-    
     int cell_m = cell_id / grid->m;
     int number_m = number_id / grid->m;
     int row = number_m + grid->m * cell_m;
