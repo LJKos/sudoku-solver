@@ -11,7 +11,6 @@
  *
  */
 #include <time.h>
-#include <pthread.h>
 
 #include "grid.h"
 #include "file_handler.h"
@@ -177,53 +176,6 @@ unsigned long long int backtrack(Grid *grid, int limit) {
     
     return tries;
 }
-
-
-
-//THREAD WORK!
-/*
-void *tryNode(void *argument) {
-    
-    
-    
-    return NULL;
-}
- */
-//THREAD WORK!
-
-
-
-//WARNING!!! INCLUDES THREADS!
-/*
-Grid *testPaths(Grid *grid, int least_id) {
-    int thread_count = grid->cell[getCellID(grid, least_id)].numbers[getNumberID(grid, least_id)].cand_count;
-    pthread_t *threads = calloc(thread_count, sizeof(pthread_t));
-    
-    Grid *grids = calloc(1, sizeof(Grid));
-    
-    for (int i = 0; i < thread_count; i++) {
-        grids = realloc(grids, sizeof(Grid) * i);
-        initGrid(&grids[i], grid->n);
-        copyGrid(grid, &grids[i]);
-        
-        int cell = getCellID(&grids[i], least_id);
-        int number = getNumberID(&grids[i], least_id);
-        
-        grids[i].cell[cell].numbers[number].value = grids[i].cell[cell].numbers[number].cand_values[i];
-        
-        pthread_create(&threads[i], NULL, tryNode, (void *)&grids[i]);
-    }
-    
-    for (int i = 0; i < thread_count; i++) {
-        pthread_join(threads[i], NULL);
-    }
-    
-    free(threads);
-    
-    return grids;
-}
- */
-//WARNING!!! INCLUDES THREADS!
 
 
 
@@ -397,72 +349,4 @@ int main(int argc, const char * argv[]) {
     printf("Grids and sudokus deleted.\n");
     
     return 0;
-    
-    /*
-    double runtime_in = (double)clock();
-    
-    Grid *grid = calloc(1, sizeof(Grid));
-    
-    //CREATE FILE HANDLER FOR NEW STANDARD! (sssrdv1.0)
-    initGrid(grid, 16);
-    
-    //UPDATE 'makeGrid' TO SUPPORT NEW STANDARD! (ssstdv1.0)
-    
-    if (makeGrid(grid)) {
-        printGrid(grid);
-    }
-    
-    
-    int round = 0;
-    int run = 1;
-    while (run) {
-        round++;
-        printf("round: %d\n\n", round);
-        
-        if (!soleCandidate(grid)) {
-            makeNumberCandidates(grid);
-            //printCandidates(grid);
-            int id = leastCandidates(grid);
-            
-            if (id != -1) {
-                Number *n = &grid->cell[getCellID(grid, id)].numbers[getNumberID(grid, id)];
-                if (n->cand_count == 1) {
-                    n->value = n->cand_values[0];
-                } else {
-                    //unsigned long long int tries = backtrack(grid, 1000000);
-                    //printf("number of tries: %llu\n", tries);
-                    run = 0;
-                }
-            } else {
-                //int tries = backtrack(grid, 2000000);
-                //printf("number of tries: %d\n", tries);
-                run = 0;
-            }
-        }
-        
-        printGrid(grid);
-        printf("\n");
-    }
-    
-    
-    
-    printf("\n");
-    double time_in = (double)clock();
-    unsigned long long int tries = backtrack(grid, 0);
-    double time_out = (double)clock();
-    printf("number of tries: %llu\n", tries);
-    printf("time used: %lf seconds\n", (time_out - time_in) / CLOCKS_PER_SEC);
-    printf("\n");
-    printGrid(grid);
-    printf("\n");
-    
-    
-    deleteGrid(grid);
-    free(grid);
-    
-    double runtime_out = (double)clock();
-    printf("program runtime: %f\n", (runtime_out - runtime_in) / CLOCKS_PER_SEC);
-    
-    return 0;
-     */
 }
