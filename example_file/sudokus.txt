@@ -1,0 +1,66 @@
+
+Version of the file format below.
+ssstdv1.0:
+
+
+Sudoku names start with '@' (not included to the name). Size (length of row or column) of the sudoku is in round brackets '()' and the sudoku itself is in curly brackets '{}'. One character is one number of sudoku and empty number is space ' '. Rows are separated with line break. Comments can be added to the sudokus with square brackets '[]' but they are optional.
+
+The program only reads format version and sudoku structures "@'name' ('size') {'data'} ['comment']". Additional text can be in the file and it doesn't affect the execution of the program.
+
+Example sudokus below.
+
+@sudoku1 (9) {
+86 3     
+  4  7   
+ 37 682  
+  3   8 5
+ 5     9 
+1 9   4  
+  694 38 
+   7  9  
+     3 61
+}
+
+@sudoku2 (9) {
+   56  34
+   78  56
+         
+12       
+34     67
+       89
+         
+45  23   
+67  45   
+} [An automorphic Sudoku with 24 clues]
+
+@sudoku3 (16) {
+ 6     8b  fe  g
+fb   ge   c  6  
+d 9c    3ge fba 
+2 g b fa1       
+ fba  g2d89c    
+cd  415623    ba
+5 61c 9 fba7g  3
+ 2   a b6 5  d 9
+a7fbg   cd     6
+9     1  2 ga  b
+1 469d  7 b 3g  
+ge  7 af461   d8
+ba f   g9cd  154
+  c 146 g   ba  
+  5 8cd a  b2  e
+3g  a  7  6   c 
+}
+
+@sudoku4 (9) {
+ 7 25 4  
+8     9 3
+     3 7 
+7    4 2 
+1       7
+ 4 5    8
+ 9 6     
+4 1     5
+  7 82 3 
+}
+
