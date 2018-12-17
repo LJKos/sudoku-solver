@@ -3,9 +3,14 @@ Version of the file format below.
 ssstdv1.0:
 
 
-Sudoku names start with '@' (not included to the name). Size (length of row or column) of the sudoku is in round brackets '()' and the sudoku itself is in curly brackets '{}'. One character is one number of sudoku and empty number is space ' '. Rows are separated with line break. Comments can be added to the sudokus with square brackets '[]' but they are optional.
+Sudoku names start with '@' (not included to the name).
+Size (length of row or column) of the sudoku is in round brackets '()' and the sudoku itself is in curly brackets '{}'.
+One character is one number of sudoku and empty number is space ' '.
+Rows are separated with line break.
+Comments can be added to the sudokus with square brackets '[]' but they are optional.
 
-The program only reads format version and sudoku structures "@'name' ('size') {'data'} ['comment']". Additional text can be in the file and it doesn't affect the execution of the program.
+The program only reads format version and sudoku structures "@'name' ('size') {'data'} ['comment']".
+Additional text can be in the file and it doesn't affect the execution of the program.
 
 Example sudokus below.
 
